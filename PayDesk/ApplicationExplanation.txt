@@ -1,0 +1,10 @@
+PayDesk is a simple C# console application used for handling payments with customer cards which have different privileges.
+
+Regardless of privileges, each card type stores a customer name, customer surname, card number, discount rate and monthly turnover. Hence, all that information is grouped in an abstract class named Card. Turnover is fully exposed while discount rate only has an exposed getter.
+Each card type has its own way of calculating the discount rate. Therefore, each card type is modeled with a separate class, all of which inherit from the base abstract Card class. The method CalculateDiscountRate is declared abstract and is overridden in inherited classes accordingly.
+
+The PayDesk class exposes a single static method, MakePayment. The method is used to calculate the discount based on the card used for making the payment and the purchase value. The method receives an object of type Card and a purchase value of type double. Using the exposed properties of the Card, the method calculates the discount and subtracts it from the purchase value to form the total payment value. The total payment value is then added to the card's turnover. The method also prints all the information in the expected format.
+
+The main program has an instance of each class: BronzeCard, SilverCard and GoldCard. Current turnover of each instance is set according to the example given in the task description. The MakePayment method is called statically from the PayDesk class for each Card instance with the according purchase values, and all information is printed in the console.
+
+To run the program, open the PayDesk.sln file using Visual Studio and start the app without debugging.
